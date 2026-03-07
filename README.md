@@ -32,13 +32,13 @@ To set up the repository locally, follow these steps:
 
 1. Clone the repository and navigate to the project directory:
     ```bash
-    git clone https://github.com/jovanavidenovic/DAM4SAM.git
-    cd DAM4SAM
+    git clone git clone https://github.com/wsumel/MADCTrack.git
+    cd MADCTrack
     ```
 2. Create a new conda environment and activate it:
    ```bash
-    conda create -n dam4sam_env python=3.10.15
-    conda activate dam4sam_env
+    conda create -n madctrack_env python=3.10.15
+    conda activate madctrack_env
     ```
 3. Install torch and other dependencies:
    ```bash
@@ -50,7 +50,7 @@ If you experience problems as mentioned here, including `ImportError: cannot imp
     ```
     python setup.py build_ext --inplace
     ```
-Note that you can still use the repository even with the warning above, but some postprocessing SAM2 steps may be skipped. For more information, consult [SAM2 installation instructions]().
+Note that you can still use the repository even with the warning above, but some postprocessing SAM2 steps may be skipped. For more information, consult the official [SAM2 installation instructions](https://github.com/facebookresearch/sam2).
 
 ## Getting started
 
