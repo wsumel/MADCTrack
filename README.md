@@ -14,7 +14,7 @@ School of Automation, Northwestern Polytechnical University
 
 This repository contains the implementation of **MADCTrack**, a modality-aware divide-and-conquer framework for **modality-missing RGBT tracking**.
 
-MADCTrack is built on top of **DAM4SAM**. Therefore, the environment setup, model configuration files, and pre-trained checkpoints remain the same as those used in the original DAM4SAM repository. Our main modification is in the **test-time pipeline**. Specifically, we perform tracking separately on the RGB and TIR modalities, then merge the two outputs to obtain the final tracking results.
+MADCTrack is implemented based on the DAM4SAM framework. Therefore, the environment setup, model configuration files, and pre-trained checkpoints remain the same as those used in the original DAM4SAM repository. Our main modification is in the **test-time pipeline**. Specifically, we perform tracking separately on the RGB and TIR modalities, then merge the two outputs to obtain the final tracking results.
 
 The overall pipeline is simple and practical:
 
@@ -32,7 +32,7 @@ To set up the repository locally, follow these steps:
 
 1. Clone the repository and navigate to the project directory:
     ```bash
-    git clone git clone https://github.com/wsumel/MADCTrack.git
+    git clone https://github.com/wsumel/MADCTrack.git
     cd MADCTrack
     ```
 2. Create a new conda environment and activate it:
@@ -67,17 +67,13 @@ Our model configs are available in `sam2/` folder.
 For evaluation, we use the same backbone, configuration files, and checkpoints as DAM4SAM.
 The main difference is that testing is performed through our custom script test.sh.
 
-1. The testing pipeline consists of the following steps:
+The testing pipeline consists of the following steps:
 
-2. Run tracking on the RGB modality.
-
-3. Run tracking on the TIR modality.
-
-4. Merge the two prediction results.
-
-5. Remove temporary modality-specific folders.
-
-6. Package the final results into a ZIP file.
+1. Run tracking on the RGB modality.
+2. Run tracking on the TIR modality.
+3. Merge the two prediction results.
+4. Remove temporary modality-specific folders.
+5. Package the final results into a ZIP file.
 
 ## Prepare `test.sh`
 
@@ -92,8 +88,8 @@ An example `test.sh` script is shown below:
 
 ```bash
 #!/bin/sh
-DIR="path to the test dataset"
-OUTPUT_DIR_BASE="directory where tracking results"
+DIR="/path/to/test_dataset/"
+OUTPUT_DIR_BASE="./tracking_results/"
 CURRENT_DIR="$(pwd)"
 
 python ./run_test.py --output_dir "$OUTPUT_DIR_BASE" --dir "$DIR" --modality "RGB"
@@ -117,6 +113,13 @@ fi
   zip -j "$CURRENT_DIR/tracking_results.zip" ./*.txt
 )
 ```
+
+## Run testing
+
+After editing the dataset path in `test.sh`, run:
+
+```bash
+bash test.sh
 
 ## Acknowledgments
 
