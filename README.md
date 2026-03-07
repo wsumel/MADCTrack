@@ -75,7 +75,7 @@ The testing pipeline consists of the following steps:
 4. Remove temporary modality-specific folders.
 5. Package the final results into a ZIP file.
 
-## Prepare `test.sh`
+### Prepare `test.sh`
 
 Before running the evaluation, please edit the `test.sh` script and modify the dataset path and output directory according to your local environment.
 
@@ -114,13 +114,17 @@ fi
 )
 ```
 
-## Run testing
+### Run testing
 
 After editing the dataset path in `test.sh`, run:
 
 ```bash
 bash test.sh
 ```
+The tracking results will be saved in `tracking_results/`, and the compressed file `tracking_results.zip` will be generated in the project root directory.
+
+---
+
 
 ## Acknowledgments
 
