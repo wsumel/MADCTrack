@@ -120,6 +120,7 @@ After editing the dataset path in `test.sh`, run:
 
 ```bash
 bash test.sh
+```
 
 ## Acknowledgments
 
