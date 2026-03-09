@@ -54,8 +54,8 @@ def run_sequence(dir_path, file_extension, output_dir,init_box):
     # Track frame-by-frame
     print('Segmenting frames...')
     for i in range(len(frames_dir)):
-        import time
-        st = time.time()
+        # import time
+        # st = time.time()
         img = Image.open(frames_dir[i])
         img_vis = np.array(img)
 
@@ -63,8 +63,8 @@ def run_sequence(dir_path, file_extension, output_dir,init_box):
             outputs = tracker.initialize(img, None, bbox=init_box)
         else:
             outputs = tracker.track(img)
-        ed = time.time()
-        print("running time: ", ed-st)
+        # ed = time.time()
+        # print("running time: ", ed-st)
         pred_mask = outputs['pred_mask']
         
 
